@@ -9,7 +9,8 @@ import java.math.BigDecimal;
 import java.util.List;
 
 @Entity(name = "product")
-@Data
+@Getter
+@Setter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
@@ -22,8 +23,8 @@ public class Product {
     @Column(nullable = false)
     private TypeProduct type;
 
-    @OneToMany(mappedBy = "product_id",cascade = CascadeType.ALL,orphanRemoval = false,fetch = FetchType.EAGER)
-    @ToString.Exclude
+    @OneToMany(mappedBy = "product",cascade = CascadeType.ALL,orphanRemoval = false,fetch = FetchType.EAGER)
+
     @EqualsAndHashCode.Exclude
     private List<OrderProduct> orderProducts;
 

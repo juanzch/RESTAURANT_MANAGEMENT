@@ -6,7 +6,8 @@ import lombok.*;
 import java.util.List;
 
 @Entity(name = "client")
-@Data
+@Getter
+@Setter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
@@ -19,8 +20,7 @@ public class Client {
     @Column(nullable = false)
     private String full_name;
 
-    @OneToMany(mappedBy = "client_id",cascade = CascadeType.ALL,orphanRemoval = false,fetch = FetchType.EAGER)
-    @ToString.Exclude
+    @OneToMany(mappedBy = "client",cascade = CascadeType.ALL,orphanRemoval = false,fetch = FetchType.EAGER)
     @EqualsAndHashCode.Exclude
     private List<Order> orders;
 }

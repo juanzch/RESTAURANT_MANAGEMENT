@@ -9,8 +9,9 @@ import lombok.*;
 import java.math.BigDecimal;
 import java.util.List;
 
-@Entity(name = "order")
-@Data
+@Entity(name = "ordered")
+@Getter
+@Setter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
@@ -25,13 +26,13 @@ public class Order {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "client_id", referencedColumnName = "id")
-    private Client client_id;
+    private Client client;
 
-    @ToString.Exclude
+
     @EqualsAndHashCode.Exclude // @121312312
     @OneToMany(
             fetch = FetchType.EAGER,
-            mappedBy = "order_id",
+            mappedBy = "order",
             cascade = CascadeType.ALL,
             orphanRemoval = false
     )
