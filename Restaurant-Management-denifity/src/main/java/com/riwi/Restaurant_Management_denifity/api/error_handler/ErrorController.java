@@ -1,9 +1,19 @@
 package com.riwi.Restaurant_Management_denifity.api.error_handler;
 
 
+import com.riwi.Restaurant_Management_denifity.api.errors.ListResponseErrors;
+import com.riwi.Restaurant_Management_denifity.api.errors.ResponseError;
+import com.riwi.Restaurant_Management_denifity.utils.exceptions.BadIdException;
+import com.riwi.Restaurant_Management_denifity.utils.exceptions.BadRequestException;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @RestControllerAdvice
 public class ErrorController {
