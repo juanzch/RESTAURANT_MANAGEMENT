@@ -1,22 +1,19 @@
 package com.riwi.Restaurant_Management_denifity.api.dto.response;
+import java.util.List;
 
-import java.math.BigDecimal;
-
-import com.riwi.Restaurant_Management_denifity.utils.enums.TypeProduct;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
-@Data
-@Builder
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.experimental.SuperBuilder;
+
+@Getter
+@Setter
+@SuperBuilder
 @AllArgsConstructor
 @NoArgsConstructor
-public class ProductResponse {
-
-    private Long id;
-    private BigDecimal price;
-    private TypeProduct type;
-    private OrderProductBasicResponse orderProducts;
+public class ProductResponse extends ProductBasicResponse {
+    private List<OrderProductResponse> orderProducts;
 
 }

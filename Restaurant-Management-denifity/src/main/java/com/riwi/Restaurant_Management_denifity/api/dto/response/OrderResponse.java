@@ -1,23 +1,18 @@
 package com.riwi.Restaurant_Management_denifity.api.dto.response;
 
-import java.math.BigDecimal;
-
-import com.riwi.Restaurant_Management_denifity.utils.enums.PaymentType;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.experimental.SuperBuilder;
 
-@Data
-@Builder
+@Getter
+@Setter
+@SuperBuilder
 @AllArgsConstructor
 @NoArgsConstructor
-public class OrderResponse {
+public class OrderResponse extends OrderBasicResponse {
     
-    private Long id;
-    private PaymentType payment_type;
-    private BigDecimal total_price;
-    private ClientBasicResponse client;
-    private OrderProductBasicResponse orderProduct;
+    private ClientBasicResponse clientBasicResponse;
 
 }
