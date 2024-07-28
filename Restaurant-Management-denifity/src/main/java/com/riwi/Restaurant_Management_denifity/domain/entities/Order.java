@@ -6,6 +6,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity(name = "ordered")
@@ -22,6 +23,9 @@ public class Order {
     private PaymentType payment_type;
     @Column(nullable = false, scale = 2)
     private BigDecimal total_price;
+
+    @Column(nullable = false)
+    private LocalDateTime date;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "client_id", referencedColumnName = "id")
